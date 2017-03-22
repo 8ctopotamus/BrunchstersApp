@@ -7,16 +7,14 @@ import {
 
 import sharedStyles from '../utils/shared-styles'
 
-class Suggestions extends Component {
+class Map extends Component {
 	render() {
 		return (
 			<View style={sharedStyles.container}>
-				<Text style={[sharedStyles.title]}>Have You Tried...</Text>
-
-				<Text>List of places</Text>
+				<Text style={[sharedStyles.title]}>Map of suggested places</Text>
 			</View>
 		)
 	}
 }
 
-export default Suggestions
+export default Map

@@ -14,7 +14,7 @@ class PlanBrunch extends Component {
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false })
 
   _handleDatePicked = (date) => {
-    console.log('A date has been picked: ', date);
+    console.log('A date has been picked: ', date)
     this._hideDateTimePicker()
   }
 

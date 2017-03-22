@@ -6,7 +6,6 @@ import {
 	TouchableOpacity,
 	View
 } from 'react-native'
-import Exponent from 'expo'
 
 const Friend = (props) => (
 	<View style={styles.avatarContainer}>

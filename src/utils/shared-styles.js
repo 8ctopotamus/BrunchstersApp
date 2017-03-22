@@ -1,13 +1,10 @@
 import { StyleSheet } from 'react-native'
-
-const RED_PRIMARY = '#F82312'
-const YELLOW_PRIMARY = '#FFC502'
-const WHITE = '#FFF3F6'
+import { RED, YELLOW, WHITE } from './colors'
 
 const sharedStyles = {
 	container: {
 		flex: 1,
-		backgroundColor: RED_PRIMARY,
+		backgroundColor: RED,
 		alignItems: 'center',
 		justifyContent: 'center',
 
@@ -18,7 +15,7 @@ const sharedStyles = {
 		color: WHITE
 	},
 	button: {
-		backgroundColor: YELLOW_PRIMARY,
+		backgroundColor: YELLOW,
 		padding: 20,
 	}
 }

@@ -12,7 +12,7 @@ import {
 	Spinner
 } from 'nachos-ui'
 
-import Friend from './Friend'
+import Friend from '../components/Friend'
 import sharedStyles from '../utils/shared-styles'
 
 class InviteFriends extends Component {
