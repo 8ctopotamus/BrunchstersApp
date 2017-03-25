@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+
+import { View } from 'react-native'
+
 import {
 	H1,
 	H2,
@@ -107,7 +110,7 @@ class RecommendationsMap extends Component {
       v: 20170305,
       ll: `${latitude}, ${longitude}`,
       llAcc: this.state.gpsAccuracy,
-      section: lookingFor || this.state.lookingFor || 'food',
+      section: lookingFor || this.state.lookingFor || 'brunch',
       limit: 10,
       openNow: 1,
       venuePhotos: 1
@@ -123,8 +126,19 @@ class RecommendationsMap extends Component {
   }
 
 	render() {
+		const { mapRegion, lookingFor } = this.state
+
+    if (!mapRegion) {
+			return (
+				<View style={sharedStyles.container}>
+					<Spinner />
+				</View>
+			)
+    }
+
 		return (
-			<BrunchstersMap {...this.state} onRegionChange={this.onRegionChange.bind(this)} />
+			<BrunchstersMap {...this.state}
+				onRegionChange={this.onRegionChange.bind(this)} />
 		)
 	}
 }

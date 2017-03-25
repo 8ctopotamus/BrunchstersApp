@@ -5,12 +5,15 @@ const sharedStyles = {
 	fullscreen: {
 		flex: 1
 	},
+	centered: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
 	container: {
 		flex: 1,
 		backgroundColor: RED,
 		alignItems: 'center',
 		justifyContent: 'center',
-
 	},
 	title: {
 		fontSize: 36,

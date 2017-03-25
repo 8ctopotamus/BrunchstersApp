@@ -5,20 +5,20 @@ import { MapView } from 'expo'
 import { H2, H3 } from 'nachos-ui';
 
 import sharedStyles from '../utils/shared-styles';
-// import Recommendation from './Recommendation';
+import Recommendation from './Recommendation';
 
 const BrunchstersMap = ({ mapRegion, gpsAccuracy, recommendations, lookingFor,
-                              headerLocation, onRegionChange }) => (
+                              headerLocation, onRegionChange }) =>{
 
-    <MapView.Animated region={mapRegion}
+    return (<MapView.Animated region={mapRegion}
                       style={sharedStyles.fullscreen}
                       onRegionChange={onRegionChange}>
 
-        <H2>
+        {/* <H2>
             {lookingFor ? `${lookingFor} in` : ''} {headerLocation}
-        </H2>
+        </H2> */}
 
-        {/* <MapView.Circle center={mapRegion}
+        <MapView.Circle center={mapRegion}
                         radius={gpsAccuracy*1.5}
                         strokeWidth={0.5}
                         strokeColor="rgba(66, 180, 230, 1)"
@@ -30,11 +30,11 @@ const BrunchstersMap = ({ mapRegion, gpsAccuracy, recommendations, lookingFor,
                         strokeWidth={0.5}
                         strokeColor="rgba(66, 180, 230, 1)"
                         fillColor="rgba(66, 180, 230, 1)"
-                        /> */}
+                        />
 
-        {/* {recommendations.map(r => <Recommendation {...r} key={r.venue.id} />)} */}
+        {recommendations.map(r => <Recommendation {...r} key={r.venue.id} />)}
 
-    </MapView.Animated>
-);
+    </MapView.Animated>)
+}
 
 export default BrunchstersMap;
