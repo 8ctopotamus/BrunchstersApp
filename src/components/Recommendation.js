@@ -1,36 +1,34 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import { MapView } from 'expo';
-//import { Card, Image, View, Subtitle, Text, Caption } from '@shoutem/ui';
+import { Button, Card, H3, Strong, P, Em} from 'nachos-ui'
 
 class Recommendation extends Component {
-    get photo() {
-        const photo = this.props.venue.photos.groups[0].items[0];
+  get photo() {
+    const photo = this.props.venue.photos.groups[0].items[0];
 
-        return `${photo.prefix}300x500${photo.suffix}`;
-    }
+    return `${photo.prefix}300x500${photo.suffix}`;
+  }
 
-    render() {
-        const { venue, tips } = this.props;
+  render() {
+    const { venue, tips } = this.props;
 
-        return (
-            <MapView.Marker coordinate={{latitude: venue.location.lat,
-                                         longitude: venue.location.lng}}>
+    return (
+      <MapView.Marker coordinate={{latitude: venue.location.lat,
+                                   longitude: venue.location.lng}}>
 
-                <MapView.Callout>
-									<Text>{venue.name}</Text>
-                    {/* <Card>
-                        <Image styleName="medium-wide"
-                               source={{uri: this.photo}} />
-                        <View styleName="content">
-                            <Subtitle>{venue.name}</Subtitle>
-                            <Caption>{tips ? tips[0].text : ''}</Caption>
-                        </View>
-                    </Card> */}
-                </MapView.Callout>
-            </MapView.Marker>
-        )
-    }
+        <MapView.Callout>
+          <Card width={200}
+							  height={300}
+								squared
+							  image={this.photo}
+							  bodyContent={<H3>{venue.name}</H3>}
+								footerContent={<Button kind="squared">Set Brunch location</Button>}>
+          </Card>
+        </MapView.Callout>
+      </MapView.Marker>
+    )
+  }
 }
 
 export default Recommendation;

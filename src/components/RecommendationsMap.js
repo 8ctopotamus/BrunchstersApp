@@ -7,7 +7,7 @@ import { H2, H3 } from 'nachos-ui';
 import sharedStyles from '../utils/shared-styles';
 import Recommendation from './Recommendation';
 
-const BrunchstersMap = ({ mapRegion, gpsAccuracy, recommendations, lookingFor,
+const RecommendationsMap = ({ mapRegion, gpsAccuracy, recommendations, lookingFor,
                               headerLocation, onRegionChange }) =>{
 
     return (<MapView.Animated region={mapRegion}
@@ -37,4 +37,4 @@ const BrunchstersMap = ({ mapRegion, gpsAccuracy, recommendations, lookingFor,
     </MapView.Animated>)
 }
 
-export default BrunchstersMap;
+export default RecommendationsMap;

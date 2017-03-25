@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import { View } from 'react-native'
 
 import {
@@ -17,7 +16,7 @@ import Expo, {
 import { stringify as queryString } from 'query-string';
 import sharedStyles from '../utils/shared-styles'
 
-import BrunchstersMap from '../components/BrunchstersMap'
+import RecommendationsMap from '../components/RecommendationsMap'
 
 import {
 	FOURSQUARE_CLIENT_ID,
@@ -27,7 +26,7 @@ import {
 const FOURSQUARE_ENDPOINT = 'https://api.foursquare.com/v2/venues/explore'
 const API_DEBOUNCE_TIME = 2000
 
-class RecommendationsMap extends Component {
+class BrunchstersMap extends Component {
 	state = {
     mapRegion: null,
     gpsAccuracy: null,
@@ -117,13 +116,13 @@ class RecommendationsMap extends Component {
     })
   }
 
-  onTopicSelect(lookingFor) {
-    this.fetchVenues(this.state.mapRegion, lookingFor)
-
-    this.setState({
-        lookingFor: lookingFor
-    })
-  }
+  // onTopicSelect(lookingFor) {
+  //   this.fetchVenues(this.state.mapRegion, lookingFor)
+	//
+  //   this.setState({
+  //       lookingFor: lookingFor
+  //   })
+  // }
 
 	render() {
 		const { mapRegion, lookingFor } = this.state
@@ -137,10 +136,10 @@ class RecommendationsMap extends Component {
     }
 
 		return (
-			<BrunchstersMap {...this.state}
+			<RecommendationsMap {...this.state}
 				onRegionChange={this.onRegionChange.bind(this)} />
 		)
 	}
 }
 
-export default RecommendationsMap
+export default BrunchstersMap
