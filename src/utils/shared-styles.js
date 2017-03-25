@@ -2,6 +2,9 @@ import { StyleSheet } from 'react-native'
 import { RED, YELLOW, WHITE } from './colors'
 
 const sharedStyles = {
+	fullscreen: {
+		flex: 1
+	},
 	container: {
 		flex: 1,
 		backgroundColor: RED,

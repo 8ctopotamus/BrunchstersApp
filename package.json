@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "expo": "^15.0.0",
+    "firebase": "^3.7.3",
     "nachos-ui": "^0.1.2",
     "query-string": "^4.3.2",
     "react": "~15.4.0",

@@ -10,8 +10,11 @@ import Expo, {
 	MapView,
 	Permissions
 } from 'expo'
+
 import { stringify as queryString } from 'query-string';
 import sharedStyles from '../utils/shared-styles'
+
+import BrunchstersMap from '../components/BrunchstersMap'
 
 import {
 	FOURSQUARE_CLIENT_ID,
@@ -35,25 +38,25 @@ class RecommendationsMap extends Component {
   componentWillMount() {
 		async function getLocationAsync() {
 		  const { status } = await Permissions.askAsync(Permissions.LOCATION);
+
 		  if (status === 'granted') {
-		    return Location.getCurrentPositionAsync({enableHighAccuracy: true});
+		    return Location.getCurrentPositionAsync({enableHighAccuracy: false});
 		  } else {
 		    throw new Error('Location permission not granted');
 		  }
 		}
 
-		getLocationAsync().then(data => console.log(data))
+		getLocationAsync().then(position => {
+			console.log('coords: ', position)
+			let region = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        latitudeDelta: 0.00922*1.5,
+        longitudeDelta: 0.00421*1.5
+      }
 
-    // this.watchID = navigator.geolocation.watchPosition((position) => {
-    //   let region = {
-    //     latitude: position.coords.latitude,
-    //     longitude: position.coords.longitude,
-    //     latitudeDelta: 0.00922*1.5,
-    //     longitudeDelta: 0.00421*1.5
-    //   }
-		//
-    //   this.onRegionChange(region, position.coords.accuracy)
-    // })
+			this.onRegionChange(region, position.coords.accuracy)
+		})
   }
 
   componentWillUnmount() {
@@ -121,15 +124,7 @@ class RecommendationsMap extends Component {
 
 	render() {
 		return (
-			<MapView.Animated
-        style={{flex: 1}}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      />
+			<BrunchstersMap {...this.state} onRegionChange={this.onRegionChange.bind(this)} />
 		)
 	}
 }
