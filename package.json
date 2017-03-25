@@ -21,6 +21,7 @@
   "dependencies": {
     "expo": "^15.0.0",
     "nachos-ui": "^0.1.2",
+    "query-string": "^4.3.2",
     "react": "~15.4.0",
     "react-native": "0.42.3",
     "react-native-modal-datetime-picker": "^4.1.0",

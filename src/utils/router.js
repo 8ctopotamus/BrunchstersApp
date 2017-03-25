@@ -4,12 +4,12 @@ import { TabNavigator } from 'react-navigation'
 import { Text } from 'react-native'
 
 import InviteFriends from '../screens/InviteFriends'
-import Map from '../screens/Map'
+import RecommendationsMap from '../screens/RecommendationsMap'
 import Planner from '../screens/Planner'
 
-export const Drawer = TabNavigator({
+export const Tabs = TabNavigator({
 	Map: {
-		screen: Map,
+		screen: RecommendationsMap,
 	},
 	Planner: {
 		screen: Planner,
