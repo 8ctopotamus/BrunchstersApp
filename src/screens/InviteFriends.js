@@ -23,7 +23,7 @@ class InviteFriends extends Component {
       loaded: false,
     };
 
-		fetch('https://randomuser.me/api/?results=10')
+		fetch('https://randomuser.me/api/?results=100')
 			.then(res => res.json())
 			.then(json => {
 				this.setState({

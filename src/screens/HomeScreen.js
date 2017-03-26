@@ -5,8 +5,17 @@ import {
 	Text,
 	View
 } from 'react-native'
+
 import ActionButton from 'react-native-action-button'
-import { Card, Button, Icon } from 'react-native-elements'
+
+import {
+	Card,
+	Button,
+	Icon,
+	List,
+	ListItem
+} from 'react-native-elements'
+
 import sharedStyles from '../utils/shared-styles'
 
 class HomeScreen extends Component {
@@ -15,12 +24,13 @@ class HomeScreen extends Component {
 
 		return (
 			<View style={sharedStyles.container}>
-				<StatusBar
-          hidden={true}
-        />
+				<StatusBar hidden={true} />
+
 				<Text>Have you tried...</Text>
+
 				<Card title='HELLO WORLD'>
 					<Button
+						onPress={() => navigate('test')}
 				    backgroundColor='#03A9F4'
 				    buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
 				    title='BRUNCH HERE' />

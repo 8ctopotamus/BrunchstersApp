@@ -43,7 +43,6 @@ class BrunchstersMap extends Component {
 		}
 
 		getLocationAsync().then(position => {
-			console.log('coords: ', position)
 			let region = {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
