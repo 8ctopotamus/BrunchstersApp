@@ -11,7 +11,7 @@ const sharedStyles = {
   },
 	container: {
 		flex: 1,
-		backgroundColor: RED,
+		backgroundColor: WHITE,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},

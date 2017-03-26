@@ -1,8 +1,6 @@
-
 import React, { Component } from 'react';
-
+import { Text } from 'react-native'
 import { MapView } from 'expo'
-import { H2, H3 } from 'nachos-ui';
 
 import sharedStyles from '../utils/shared-styles';
 import Recommendation from './Recommendation';
@@ -14,9 +12,9 @@ const RecommendationsMap = ({ mapRegion, gpsAccuracy, recommendations, lookingFo
                       style={sharedStyles.fullscreen}
                       onRegionChange={onRegionChange}>
 
-        {/* <H2>
+        {/*<Text>
             {lookingFor ? `${lookingFor} in` : ''} {headerLocation}
-        </H2> */}
+        </Text> */}
 
         <MapView.Circle center={mapRegion}
                         radius={gpsAccuracy*1.5}

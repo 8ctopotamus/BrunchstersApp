@@ -52,9 +52,7 @@ class InviteFriends extends Component {
 
 				<ListView contentContainerStyle={styles.listView}
 					dataSource={dataSource}
-					renderRow={friend => (
-						<Friend key={friend.name.first} data={friend} />
-					)} />
+					renderRow={friend => <Friend key={friend.name.first} data={friend} />} />
 			</View>
 		)
 	}

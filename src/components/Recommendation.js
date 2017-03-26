@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Image, Text, View } from 'react-native'
 import { MapView } from 'expo';
-import { Button, Card, H3, Strong, P, Em} from 'nachos-ui'
 
 class Recommendation extends Component {
   get photo() {
@@ -18,13 +17,13 @@ class Recommendation extends Component {
                                    longitude: venue.location.lng}}>
 
         <MapView.Callout>
-          <Card width={200}
+          {/* <Card width={200}
 							  height={300}
 								squared
 							  image={this.photo}
 							  bodyContent={<H3>{venue.name}</H3>}
 								footerContent={<Button kind="squared">Set Brunch location</Button>}>
-          </Card>
+          </Card> */}
         </MapView.Callout>
       </MapView.Marker>
     )
