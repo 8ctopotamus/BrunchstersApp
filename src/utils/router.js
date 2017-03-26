@@ -1,21 +1,11 @@
 import React from 'react'
-import { StackNavigator, TabNavigator } from 'react-navigation'
 
-import { Text } from 'react-native'
+import { DrawerNavigator, StackNavigator, TabNavigator } from 'react-navigation'
 
 import HomeScreen from '../screens/HomeScreen'
 import InviteFriends from '../screens/InviteFriends'
 import BrunchstersMap from '../screens/BrunchstersMap'
 import Planner from '../screens/Planner'
-
-export const HomeStack = StackNavigator({
-	Home: {
-		screen: HomeScreen,
-			navigationOptions:{
-	    title: 'Home',
-	  }
-	}
-})
 
 export const Tabs = TabNavigator({
 	Map: {
@@ -27,4 +17,16 @@ export const Tabs = TabNavigator({
 	Friends: {
 		screen: InviteFriends,
 	},
+})
+
+export const HomeStack = StackNavigator({
+	Home: {
+		screen: HomeScreen,
+			navigationOptions: {
+	    title: 'Home',
+	  }
+	},
+	PlannerTabs: {
+		screen: Tabs
+	}
 })

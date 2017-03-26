@@ -8,10 +8,6 @@ import {
 	View
 } from 'react-native'
 
-import {
-	Spinner
-} from 'nachos-ui'
-
 import Friend from '../components/Friend'
 import sharedStyles from '../utils/shared-styles'
 
@@ -42,7 +38,7 @@ class InviteFriends extends Component {
 
 		if (!loaded) return (
 			<View style={sharedStyles.container}>
-				<Spinner />
+				<Text>Loading...</Text>
 			</View>
 		)
 

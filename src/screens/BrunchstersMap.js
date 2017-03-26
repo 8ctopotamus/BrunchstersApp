@@ -1,11 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
-
-import {
-	H1,
-	H2,
-	Spinner
-} from 'nachos-ui'
+import { Text, View } from 'react-native'
 
 import Expo, {
 	Location,
@@ -130,7 +124,7 @@ class BrunchstersMap extends Component {
     if (!mapRegion) {
 			return (
 				<View style={sharedStyles.container}>
-					<Spinner />
+					<Text>Loading...</Text>
 				</View>
 			)
     }
