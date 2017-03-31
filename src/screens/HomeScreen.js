@@ -1,55 +1,59 @@
 import React, { Component } from 'react'
+import { StatusBar, } from 'react-native'
 
 import {
-	StatusBar,
-	Text,
-	View
-} from 'react-native'
-
-import ActionButton from 'react-native-action-button'
-
-import {
-	Card,
+	Body,
 	Button,
+	Card,
+	CardItem,
+	Container,
+	Content,
+	Fab,
+	H2,
+	H3,
 	Icon,
-	List,
-	ListItem
-} from 'react-native-elements'
-
-import sharedStyles from '../utils/shared-styles'
+	ListItem,
+	Text
+} from 'native-base';
 
 class HomeScreen extends Component {
+	state = {
+		fabActive: false
+	}
 	render() {
 		const { navigate } = this.props.navigation
 
 		return (
-			<View style={sharedStyles.container}>
+			<Container>
 				<StatusBar hidden={true} />
 
-				<Text>Have you tried...</Text>
+				<Content>
+					<Text>Have you tried...</Text>
 
-				<Card title='HELLO WORLD'>
-					<Button
-						onPress={() => navigate('test')}
-				    backgroundColor='#03A9F4'
-				    buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-				    title='BRUNCH HERE' />
-				</Card>
-				<Card title='HELLO WORLD'>
-					<Button
-				    backgroundColor='#03A9F4'
-				    buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-				    title='BRUNCH HERE' />
-				</Card>
-				<Card title='HELLO WORLD'>
-					<Button
-				    backgroundColor='#03A9F4'
-				    buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-				    title='BRUNCH HERE' />
-				</Card>
-				<ActionButton buttonColor="rgba(231,76,60,1)" onPress={() => navigate('PlannerTabs')}>
-				</ActionButton>
-			</View>
+					<Card>
+						<CardItem>
+	            <Body>
+	              <H3>BRUNCH HERE</H3>
+	            </Body>
+	          </CardItem>
+
+						<CardItem>
+							<Button onPress={() => navigate('CreateBrunch')}>
+								<Text>BRUNCH HERE</Text>
+							</Button>
+						</CardItem>
+					</Card>
+				</Content>
+
+				<Fab
+          active={this.state.fabActive}
+          direction="up"
+          style={{ backgroundColor: '#5067FF' }}
+          position="bottomRight"
+          onPress={() => navigate('CreateBrunch')}>
+          <Icon name="add" />
+	      </Fab>
+			</Container>
 		)
 	}
 }

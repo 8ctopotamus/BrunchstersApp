@@ -10,7 +10,7 @@ import Expo, {
 import { stringify as queryString } from 'query-string';
 import sharedStyles from '../utils/shared-styles'
 
-import RecommendationsMap from '../components/RecommendationsMap'
+import RecommendationsMap from './RecommendationsMap'
 
 import {
 	FOURSQUARE_CLIENT_ID,

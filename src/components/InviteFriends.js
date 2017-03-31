@@ -8,7 +8,7 @@ import {
 	View
 } from 'react-native'
 
-import Friend from '../components/Friend'
+import Friend from './Friend'
 import sharedStyles from '../utils/shared-styles'
 
 class InviteFriends extends Component {
