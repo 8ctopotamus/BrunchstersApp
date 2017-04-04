@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { RED, YELLOW, WHITE } from './colors'
+import { RED, YELLOW, WHITE } from './config/colors'
 
 const sharedStyles = {
 	fullscreen: {

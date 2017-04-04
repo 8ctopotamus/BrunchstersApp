@@ -8,7 +8,7 @@ import Expo, {
 } from 'expo'
 
 import { stringify as queryString } from 'query-string';
-import sharedStyles from '../utils/shared-styles'
+import sharedStyles from '../shared-styles'
 
 import RecommendationsMap from './RecommendationsMap'
 

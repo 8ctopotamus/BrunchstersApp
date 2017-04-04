@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 
 import DateTimePicker from 'react-native-modal-datetime-picker'
-import sharedStyles from '../utils/shared-styles'
+import sharedStyles from '../shared-styles'
 
 class PlanBrunch extends Component {
 	state = {

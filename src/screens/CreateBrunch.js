@@ -31,7 +31,7 @@ class CreateBrunch extends Component {
 				return (<Text>locations</Text>);
 				break
 			case 'people':
-				return (<Text>people</Text>)
+				return (<InviteFriends />)
 				break
 			default:
 		}
@@ -43,9 +43,13 @@ class CreateBrunch extends Component {
 		return (
 			<Container>
 				<Content>
-					{this.state.selectedDateTime}
-
 					{this.renderSelectedTab()}
+
+					<Button
+						onPress={()=>this.setState({selectedTab: 'people'})}>
+						<Text>Select ppl</Text>
+					</Button>
+
 					<Text>When da Brunch at?</Text>
 					<Button
 						onPress={this._showDateTimePicker}>

@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 
 import Friend from './Friend'
-import sharedStyles from '../utils/shared-styles'
+import sharedStyles from '../shared-styles'
 
 class InviteFriends extends Component {
 	constructor() {
@@ -36,15 +36,11 @@ class InviteFriends extends Component {
 	render() {
 		const { dataSource, loaded } = this.state
 
-		if (!loaded) return (
-			<View style={sharedStyles.container}>
-				<Text>Loading...</Text>
-			</View>
-		)
+		if (!loaded) return ( <Text>Loading...</Text> )
 
 		return (
-			<View style={sharedStyles.container}>
-				<Text style={[sharedStyles.title, {marginTop: 50}]}>Invite Brunchsters</Text>
+			<View>
+				<Text>Invite Brunchsters</Text>
 
 				<ListView contentContainerStyle={styles.listView}
 					dataSource={dataSource}

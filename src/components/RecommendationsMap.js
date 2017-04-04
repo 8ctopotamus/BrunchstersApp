@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native'
 import { MapView } from 'expo'
 
-import sharedStyles from '../utils/shared-styles';
+import sharedStyles from '../shared-styles';
 import Recommendation from './Recommendation';
 
 const RecommendationsMap = ({ mapRegion, gpsAccuracy, recommendations, lookingFor,

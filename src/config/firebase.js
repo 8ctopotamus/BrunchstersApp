@@ -16,4 +16,6 @@ const firebaseConfig = {
     messagingSenderId: FIREBASE_MESSAGING_SENDER_ID
 }
 
-export default firebaseApp = firebase.initializeApp(firebaseConfig)
+const firebaseApp = firebase.initializeApp(firebaseConfig)
+
+export default firebaseApp

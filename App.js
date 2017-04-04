@@ -1,6 +1,8 @@
 import Expo from 'expo';
 import React, { Component } from 'react'
+import firebaseApp from './src/config/firebase'
 import { HomeStack } from './src/router'
+import Login from './src/screens/Login'
 
 export default class App extends Component {
   constructor() {
@@ -20,8 +22,10 @@ export default class App extends Component {
   }
 
   render() {
-      if (!this.state.isReady)
-        return <Expo.AppLoading />
+      if (!this.state.isReady) return <Expo.AppLoading />
+
+
+      return <Login/>
 
       return (
           <HomeStack />
