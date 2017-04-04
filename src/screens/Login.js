@@ -14,7 +14,11 @@ import firebaseApp from '../config/firebase'
 
 export default class Login extends Component {
 	state = {
-		mode: 'log_in'
+		mode: 'log_in',
+		username: '',
+		email: '',
+		password: '',
+		loading: false,
 	}
 
 	render() {
@@ -23,21 +27,23 @@ export default class Login extends Component {
 		return (
 			<Container>
 				<Content>
-					<Text>{this.state.mode}</Text>
+					<Text>{this.state.mode} - {this.state.username}</Text>
 					<Form>
             <Item floatingLabel>
               <Label>Username</Label>
-              <Input />
+              <Input onChangeText={(text) => this.setState({username: text})}
+          					 value={this.state.username} />
             </Item>
 						<Item floatingLabel last>
 							<Label>Email</Label>
-							<Input />
+							<Input onChangeText={(text) => this.setState({email: text})}
+          					 value={this.state.email} />
 						</Item>
             <Item floatingLabel last>
               <Label>Password</Label>
-              <Input />
+              <Input onChangeText={(text) => this.setState({password: text})}
+          					 value={this.state.password} />
             </Item>
-
 						<Button block onPress={this.handleFormSubmit.bind(this)}>
 							<Text>{this.state.mode === 'log_in' ? 'Log In' : 'Create User'}</Text>
 						</Button>
@@ -46,11 +52,7 @@ export default class Login extends Component {
 					<Button
 						light
 						block
-						onPress={() => {
-							this.state.mode === 'log_in' ?
-								this.setState({mode: 'create_user'}) :
-								this.setState({mode: 'log_in'})
-						}}>
+						onPress={() => this.state.mode === 'log_in' ? this.setState({mode: 'create_user'}) : this.setState({mode: 'log_in'}) }>
 						<Text>{this.state.mode === 'log_in' ? 'Create Account' : 'Already have an account? Log in.'}</Text>
 					</Button>
 				</Content>
@@ -59,14 +61,36 @@ export default class Login extends Component {
 	}
 
 	handleFormSubmit() {
-		// Log in
+		// Log In
 		if (this.state.mode === 'log_in') {
-			console.log('Logging in...')
-		} else if (this.state.mode === 'create_user') {
-			// Create User
-			console.log('Createing user...')
-			// this.state.mode === 'create_user'
-			//firebaseApp.auth().createUserWithEmailAndPassword
+			firebaseApp.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+				.then((userData) => {
+	        this.setState({ loading: false })
+	        alert("Login successful" + userData);
+	      })
+				.catch((error) => {
+					this.setState({ loading: false })
+	        alert('Login Failed. Please try again');
+	    	})
+
+		}
+		// Create User
+		else if (this.state.mode === 'create_user') {
+			firebaseApp.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+			.then(() => {
+        alert('Your account was created!');
+        this.setState({
+          email: '',
+          password: '',
+          loading: false
+				})
+    	})
+			.catch((error) => {
+	      this.setState({
+	        loading: false
+	      })
+      	alert("Account creation failed: " + error.message );
+    	})
 		}
 	}
 
