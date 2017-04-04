@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native'
-import { RED, YELLOW, WHITE } from './config/colors'
 
-const sharedStyles = {
+const sharedStyles = StyleSheet.create({
 	fullscreen: {
 		flex: 1
 	},
@@ -24,6 +23,6 @@ const sharedStyles = {
 		backgroundColor: YELLOW,
 		padding: 20,
 	}
-}
+})
 
 export default sharedStyles
