@@ -1,33 +1,46 @@
-import React, { Component } from 'react'
-import { AsyncStorage } from 'react-native'
+import React, { Component} from 'react'
+
+import {
+	StyleSheet,
+} from 'react-native'
+
 import {
 	Button,
 	Container,
 	Content,
-	Text,
 	Form,
+	H1,
+	Input,
 	Item,
+	Text,
 	Label,
-	Input
 } from 'native-base'
+
 import firebaseApp from '../config/firebase'
 
 export default class Login extends Component {
-	state = {
-		mode: 'log_in',
-		username: '',
-		email: '',
-		password: '',
-		loading: false,
+	constructor() {
+		super()
+
+		this.state = {
+			mode: 'log_in',
+			username: '',
+			email: '',
+			password: '',
+			loading: false,
+		}
+
+		this.handleFormSubmit = this.handleFormSubmit.bind(this)
 	}
 
 	render() {
-    // const { navigate } = this.props.navigation
+		const { navigate } = this.props.navigation
 
 		return (
 			<Container>
 				<Content>
-					<Text>{this.state.mode} - {this.state.username}</Text>
+					<H1>{this.state.mode === "log_in" ? 'Log in' : 'Create an account' }</H1>
+
 					<Form>
             <Item floatingLabel>
               <Label>Username</Label>
@@ -44,8 +57,8 @@ export default class Login extends Component {
               <Input onChangeText={(text) => this.setState({password: text})}
           					 value={this.state.password} />
             </Item>
-						<Button block onPress={this.handleFormSubmit.bind(this)}>
-							<Text>{this.state.mode === 'log_in' ? 'Log In' : 'Create User'}</Text>
+						<Button block onPress={this.handleFormSubmit}>
+							<Text>{this.state.mode === 'log_in' ? 'Log In' : 'Create'}</Text>
 						</Button>
           </Form>
 
@@ -61,37 +74,43 @@ export default class Login extends Component {
 	}
 
 	handleFormSubmit() {
+		const { navigate } = this.props.navigation
+		let username = this.state.username.trim()
+		let email = this.state.email.trim()
+		let password = this.state.password.trim()
+
+
 		// Log In
 		if (this.state.mode === 'log_in') {
-			firebaseApp.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+			firebaseApp.auth().signInWithEmailAndPassword(email, password)
 				.then((userData) => {
 	        this.setState({ loading: false })
-	        alert("Login successful" + userData);
+					console.log("Login successful", userData)
+					navigate('Home')
 	      })
 				.catch((error) => {
 					this.setState({ loading: false })
-	        alert('Login Failed. Please try again');
+	        alert('Login Failed: ' , error.message)
 	    	})
 
 		}
 		// Create User
 		else if (this.state.mode === 'create_user') {
-			firebaseApp.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+			firebaseApp.auth().createUserWithEmailAndPassword(email, password)
 			.then(() => {
-        alert('Your account was created!');
+        alert('Your account was created!')
         this.setState({
+					username: '',
           email: '',
           password: '',
           loading: false
 				})
+				navigate('Home')
     	})
 			.catch((error) => {
-	      this.setState({
-	        loading: false
-	      })
-      	alert("Account creation failed: " + error.message );
+	      this.setState({ loading: false })
+      	alert("Account creation failed: " + error.message )
     	})
 		}
 	}
-
 }

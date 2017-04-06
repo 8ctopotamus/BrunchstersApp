@@ -10,17 +10,14 @@ const sharedStyles = StyleSheet.create({
   },
 	container: {
 		flex: 1,
-		backgroundColor: WHITE,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
 	title: {
 		fontSize: 36,
 		marginBottom: 20,
-		color: WHITE
 	},
 	button: {
-		backgroundColor: YELLOW,
 		padding: 20,
 	}
 })

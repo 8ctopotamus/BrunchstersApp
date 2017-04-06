@@ -8,6 +8,8 @@ import {
 	FIREBASE_MESSAGING_SENDER_ID
 } from '../../api_keys.js'
 
+// import { navigation } from 'react-navigation'
+
 const firebaseConfig = {
     apiKey: FIREBASE_API_KEY,
     authDomain: FIREBASE_AUTH_DOMAIN,
@@ -16,6 +18,17 @@ const firebaseConfig = {
     messagingSenderId: FIREBASE_MESSAGING_SENDER_ID
 }
 
+// overall firebase ref
 const firebaseApp = firebase.initializeApp(firebaseConfig)
-
 export default firebaseApp
+
+// checks for current user
+export const _getFirebaseUser = () => firebaseApp.auth().onAuthStateChanged((user) => {
+	if (user) {
+		console.log('Got user!', user)
+		return user
+	} else {
+		console.log('no user')
+		return null
+	}
+})

@@ -7,18 +7,21 @@ import {
 	TabNavigator
 } from 'react-navigation'
 
+import firebaseApp from './config/firebase'
+
+import Login from './screens/Login'
 import HomeScreen from './screens/HomeScreen'
 import CreateBrunch from './screens/CreateBrunch'
 
 export const HomeStack = StackNavigator({
+	Login: {
+		screen: Login
+	},
 	Home: {
 		screen: HomeScreen,
 		navigationOptions: {
-			header: {
-				left: <Text style={{marginLeft: 20}}>Logo</Text>,
-				right: <Text style={{marginRight: 20}}>Menu</Text>
-			}
-	  }
+
+		}
 	},
 	CreateBrunch: {
 		screen: CreateBrunch,

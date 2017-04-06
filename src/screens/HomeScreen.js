@@ -14,12 +14,19 @@ import {
 	Icon,
 	ListItem,
 	Text
-} from 'native-base';
+} from 'native-base'
+
+import firebaseApp from '../config/firebase'
 
 class HomeScreen extends Component {
-	state = {
-		fabActive: false
+	constructor() {
+		super()
+
+		this.state = {
+			fabActive: false
+		}
 	}
+
 	render() {
 		const { navigate } = this.props.navigation
 
@@ -29,6 +36,14 @@ class HomeScreen extends Component {
 
 				<Content>
 					<Text>Have you tried...</Text>
+
+					<Button onPress={() => {
+						firebaseApp.auth().signOut()
+						.then(() => { navigate('Login') })
+						.catch((err) => { alert(err) })
+					}}>
+						<Text>Log out</Text>
+					</Button>
 
 					<Card>
 						<CardItem>
