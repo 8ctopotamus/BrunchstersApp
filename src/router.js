@@ -7,7 +7,7 @@ import {
 	TabNavigator
 } from 'react-navigation'
 
-import firebaseApp from './config/firebase'
+import firebaseRef from './config/firebase'
 
 import Login from './screens/Login'
 import HomeScreen from './screens/HomeScreen'

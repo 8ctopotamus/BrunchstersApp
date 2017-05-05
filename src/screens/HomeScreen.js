@@ -16,7 +16,7 @@ import {
 	Text
 } from 'native-base'
 
-import firebaseApp from '../config/firebase'
+import firebaseRef from '../config/firebase'
 
 class HomeScreen extends Component {
 	constructor() {
@@ -38,7 +38,8 @@ class HomeScreen extends Component {
 					<Text>Have you tried...</Text>
 
 					<Button onPress={() => {
-						firebaseApp.auth().signOut()
+						firebaseRef.auth()
+						.signOut()
 						.then(() => { navigate('Login') })
 						.catch((err) => { alert(err) })
 					}}>

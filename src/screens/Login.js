@@ -16,7 +16,7 @@ import {
 	Label,
 } from 'native-base'
 
-import firebaseApp from '../config/firebase'
+import firebaseRef from '../config/firebase'
 
 export default class Login extends Component {
 	constructor() {
@@ -79,10 +79,9 @@ export default class Login extends Component {
 		let email = this.state.email.trim()
 		let password = this.state.password.trim()
 
-
 		// Log In
 		if (this.state.mode === 'log_in') {
-			firebaseApp.auth().signInWithEmailAndPassword(email, password)
+			firebaseRef.auth().signInWithEmailAndPassword(email, password)
 				.then((userData) => {
 	        this.setState({ loading: false })
 					console.log("Login successful", userData)
@@ -96,7 +95,7 @@ export default class Login extends Component {
 		}
 		// Create User
 		else if (this.state.mode === 'create_user') {
-			firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+			firebaseRef.auth().createUserWithEmailAndPassword(email, password)
 			.then(() => {
         alert('Your account was created!')
         this.setState({
